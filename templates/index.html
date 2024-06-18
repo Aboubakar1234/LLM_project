@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Articles</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Liste des Articles</h1>
+        <div class="list-group">
+            {% for url, title, media_name, author, description, publication_date, media_logo in articles %}
+            <a href="{{ url }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ title }}</h5>
+                    <small>Date de publication: {{ publication_date }}</small>
+                </div>
+                <p class="mb-1">{{ description }}</p>
+                <small>Publié par: {{ media_name }} - Auteur: {{ author or 'Inconnu' }}</small>
+                <div>
+                    <img src="{{ media_logo }}" alt="Logo" style="height: 50px;">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
